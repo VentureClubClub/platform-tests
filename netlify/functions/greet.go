@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-lambda-go/lambdacontext"
 )
 
-func greet(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	  lc, ok := lambdacontext.FromContext(ctx)
 	if !ok {
 		return &events.APIGatewayProxyResponse{
@@ -26,5 +26,5 @@ func greet(ctx context.Context, request events.APIGatewayProxyRequest) (*events.
 }
 
 func main() {
-  lambda.Start(greet)
+  lambda.Start(handler)
 }

@@ -8,7 +8,7 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("This message will show up in the CLI console.")
 
 	return &events.APIGatewayProxyResponse{
@@ -20,5 +20,5 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 }
 
 func main() {
-	lambda.Start(handler)
+	lambda.Start(Handler)
 }

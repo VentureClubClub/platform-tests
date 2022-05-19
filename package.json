@@ -18,8 +18,7 @@
     "start": "react-scripts start",
     "build": "npm run build:client && npm run build:getGreeting",
     "build:client": "react-scripts build",
-    "build:greet": "cd functions/greet && make build",
-    "build:getGreeting": "cd functions/getGreeting && make build",
+    "build:getGreeting": "cd functions/get-greeting && make build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

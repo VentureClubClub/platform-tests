@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"io/ioutil"
 
 	"github.com/jackc/pgx/v4"
 	"github.com/aws/aws-lambda-go/events"
@@ -13,7 +14,15 @@ import (
 
 func Handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 
-	conn, err := pgx.Connect(context.Background(), os.Getenv("DATABASE_URL"))
+	files, _ := ioutil.ReadDir(".")
+	// TODO find root.crt absolute path and put it in DATABASE_URL
+	// ?ssl=true&sslmode=verify-full&sslrootcert=root.crt
+	databaseURL := os.Getenv("DATABASE_URL")
+	for _, f := range files {
+		log.Println(f.Name(), f.IsDir())
+	}
+
+	conn, err := pgx.Connect(context.Background(), databaseURL)
 	if err != nil {
 		log.Printf("Unable to connect to database: %v\n", err)
 		return &events.APIGatewayProxyResponse{

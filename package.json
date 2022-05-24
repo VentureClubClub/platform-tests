@@ -21,7 +21,8 @@
     "build:client": "react-scripts build",
     "build:getGreeting": "cd functions/get-greeting && make build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postgraphile": "postgraphile --connection postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/yugabyte --schema public --watch"
   },
   "eslintConfig": {
     "extends": [

@@ -18,12 +18,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "env": "env",
     "build": "echo \"no react please for now\" || npm run build:client",
     "build:client": "react-scripts build",
     "build:getGreeting": "cd functions/get-greeting && make build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postgraphile": "postgraphile --connection \"postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/yugabyte?ssl=true&sslmode=require\" --schema public --watch --enhance-graphiql"
+    "postgraphile": "postgraphile --connection \"postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/yugabyte?ssl=true&sslmode=verify-ca&sslrootcert=$(pwd)/root.crt\" --schema public --watch --enhance-graphiql"
   },
   "eslintConfig": {
     "extends": [

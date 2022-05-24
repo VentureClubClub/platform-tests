@@ -1,1 +1,3 @@
-web: npm run postgraphile
+"scripts": {
+  "start": "npm run postgraphile"
+}

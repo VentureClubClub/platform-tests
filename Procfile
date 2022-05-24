@@ -1,1 +1,1 @@
-web: npm postgraphile
+web: npm run postgraphile

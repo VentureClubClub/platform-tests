@@ -1,1 +1,1 @@
-web: echo "!!!&&&***!!!" && npm run start
+web: npm run postgraphile

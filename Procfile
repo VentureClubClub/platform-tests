@@ -1,3 +1,1 @@
-"scripts": {
-  "start": "npm run postgraphile"
-}
+web: echo "!!!&&&***!!!" && npm run start

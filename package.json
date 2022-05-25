@@ -24,7 +24,7 @@
     "build:getGreeting": "cd functions/get-greeting && make build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postgraphile": "postgraphile --connection \"postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@$POSTGRES_HOST:$POSTGRES_PORT/yugabyte?ssl=true&sslmode=verify-full&sslrootcert=./root.crt\" --schema public --watch --enhance-graphiql"
+    "postgraphile": "postgraphile --connection postgres://$RDS_PG_USER:$RDS_PG_PW@$RDS_PG_HOST:$RDS_PG_PORT/test?ssl=true&sslmode=verify-full"
   },
   "eslintConfig": {
     "extends": [

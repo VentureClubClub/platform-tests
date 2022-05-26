@@ -47,14 +47,14 @@ const options: PostGraphileOptions = {
 const middleware = postgraphile(database, schemas, options);
 
 const server = createServer(middleware);
-server.listen(cfg("LISTEN_PORT", "4001"), () => {
+server.listen(`${cfg("LISTEN_HOST", "localhost")}:${cfg("LISTEN_PORT", "4001")}`, () => {
   const address = server.address();
   if (address === null) {
     console.log("ERROR: unexpected null address")
     return
   }
   if (typeof address !== 'string') {
-    const href = `http://localhost:${address.port}${options.graphiqlRoute || '/graphiql'}`;
+    const href = `http://${address.host}:${address.port}${options.graphiqlRoute || '/graphiql'}`;
     console.log(`PostGraphiQL available at ${href} 🚀`);
   } else {
     console.log(`PostGraphile listening on ${address} 🚀`);

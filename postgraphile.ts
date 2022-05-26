@@ -26,6 +26,8 @@ const database = new Pool({
   },
 })
 
+console.log(database)
+
 const schemas = ["public"]
 
 const options: PostGraphileOptions = {

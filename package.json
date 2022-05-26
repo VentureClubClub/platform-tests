@@ -7,10 +7,12 @@
     "@testing-library/react": "^13.2.0",
     "@testing-library/user-event": "^13.5.0",
     "@vendia/serverless-express": "^4.8.0",
+    "dotenv": "^16.0.1",
     "postgraphile": "^4.12.9",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
+    "ts-node": "^10.8.0",
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
@@ -18,13 +20,13 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "env": "env",
     "build": "echo \"no react please for now\" || npm run build:client",
     "build:client": "react-scripts build",
     "build:getGreeting": "cd functions/get-greeting && make build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postgraphile": "postgraphile --connection postgres://$RDS_PG_USER:$RDS_PG_PW@$RDS_PG_HOST:$RDS_PG_PORT/test?ssl=true&sslmode=verify-full"
+    "postgraphile": "ts-node postgraphile.ts",
+    "env": "export $(cat .env | xargs)"
   },
   "eslintConfig": {
     "extends": [

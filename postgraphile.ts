@@ -54,7 +54,7 @@ server.listen(`${cfg("LISTEN_HOST", "localhost")}:${cfg("LISTEN_PORT", "4001")}`
     return
   }
   if (typeof address !== 'string') {
-    const href = `http://${address.host}:${address.port}${options.graphiqlRoute || '/graphiql'}`;
+    const href = `http://${address.address}:${address.port}${options.graphiqlRoute || '/graphiql'}`;
     console.log(`PostGraphiQL available at ${href} 🚀`);
   } else {
     console.log(`PostGraphile listening on ${address} 🚀`);

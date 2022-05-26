@@ -42,6 +42,7 @@ const options: PostGraphileOptions = {
   legacyRelations: 'omit',
   exportGqlSchemaPath: `${__dirname}/schema.graphql`,
   sortExport: true,
+  retryOnInitFail: true,
 };
 
 const middleware = postgraphile(database, schemas, options);
